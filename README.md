@@ -13,7 +13,7 @@ I was asked to write a method that would calculate whether a player had won a si
 
 ### My Solution
 
-I was dissatisfied with the elegance of my solution in the time allotted, but from memory, I have recreated the implementation here (also correcting a syntactical mistake with `System.Linq.Range` vs `Skip` & `Take`), and refer to it in this codebase as the Implementation Type enumerator value of: boolArrayWithPositionAwareness. I knew that I needed to be efficient with my storage and I knew that I could gain significant efficiences in search by virtue of positional awareness of the move just made by the player.
+I was dissatisfied with the elegance of my solution in the time allotted, but from memory, I have recreated the implementation [here](/ConnectK/Implementations/Winplementations.cs#L15) (also correcting a syntactical mistake with `System.Linq.Range` vs `Skip` & `Take`), and refer to it in this codebase as the Implementation Type enumerator value of: [boolArrayWithPositionAwareness](/ConnectK/Implementations/ImplementationRunner.cs#L108). I knew that I needed to be efficient with my storage and I knew that I could gain significant efficiences in search by virtue of positional awareness of the move just made by the player.
 
 ### My Assumptions
 
@@ -22,12 +22,12 @@ My assumptions were as follows:
 - That there would be a more efficient way of querying the data at hand, but I couldn't grasp it in the time allotted.
 
 ## Method
-I set about thinking through the alternative means of storage that could be used to contra-test my approach, and settled on a simple, flat `string` format, and an array of bytes. The former to be able to complete this in a single, brute-force operation; the latter to test an alternative technique with a `byte[]` array, as I felt that having a Type closer to the compiler and it's resulting machine-code would provide performance benefits.
+I set about thinking through the alternative means of storage that could be used to contra-test my approach, and settled on a simple, [flat](/ConnectK/Implementations/Winplementations.cs#L58) `string` format, and an array of [bytes](/ConnectK/Implementations/Winplementations.cs#L87). The former to be able to complete this in a single, brute-force operation; the latter to test an alternative technique with a `byte[]` array, as I felt that having a Type closer to the compiler and it's resulting machine-code would provide performance benefits.
 
 I also began to think through the types of tests that I wanted to run and how I may perform them. This resulted in tests focusing on extending the boundaries of the data in question and the extreme directions it could be taken.
 
 ### Implementation Types
-The types of implementation for this storage can be found here in an Enumerator, but the approaches are:
+The types of implementation for this storage can be found [here](/ConnectK/Implementations/ImplementationRunner.cs#L106) in an Enumerator, but the approaches are:
 - Bool Array With Positional Awareness
 - Bool Array, No Positional Awareness
 - Flat String With Position Awareness
@@ -35,7 +35,7 @@ The types of implementation for this storage can be found here in an Enumerator,
 - Byte Pattern Search
 
 ### Run Types
-The types of runs being tested to exercise the boundary conditions are stored here in an Enumerator, but the runs are:
+The types of runs being tested to exercise the boundary conditions are stored [here](/ConnectK/Implementations/ImplementationRunner.cs#L115) in an Enumerator, but the runs are:
 - Control (the approach I took at interview)
 - Plane Extension (extending the horizontal plane significantly)
 - Plane & Match Extension (extending both the horizontal plane and the requirement for matches grouped together)
